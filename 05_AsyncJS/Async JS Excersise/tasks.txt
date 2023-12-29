@@ -1,0 +1,53 @@
+Part 1: Number Facts»
+Write a function, showNumberTrivia, that makes a request to the Numbers API (http://numbersapi.com) to get trivia about your favorite number. (Make sure you get back JSON — you may need to look at the documentation of the API to see how to do this: Details.) Log the piece of trivia to the console.
+
+Have a “race”: make a new function, showNumberRace, that asks for trivia about four different numbers (using four separate requests), but, as soon as one request returns, log the piece of trivia for the winning number to the console.
+
+Get all: make a new function, showNumberAll. that asks for trivia about about different numbers. Make all of the requests at the same time, but handle them once all requests are completed.
+
+However, at least one of the “numbers” you use should be an invalid thing, like the string “WRONG”.
+
+Log to the console the array of trivia for responses with a successful status code, and the array of error messages for the responses with a failed status code.
+
+Write a function, main, which calls all three of those functions, in order, moving onto the next function only after the current function fully completes.
+
+Call main; your console should look like this:
+
+showNumberTrivia: 5 is the number of appendages on most starfish.
+
+showNumberRace: 42 is the number of laws of cricket.
+
+GET http://numbersapi.com/WRONG?json 404 (Not Found)
+showNumberAll fulfilled: ['7 is the number of colors of the rainbow.',
+  '11 is the number of incarnations of The Doctor in Doctor Who.',
+  '22 is the typical length in minutes of a half hour sitcom.']
+showNumberAll rejected: ['Request failed with status code 404']
+Part 2: Deck of Cards»
+In this part, you’ll use the Deck of Cards API, which has two endpoints you’ll need:
+
+https://deckofcardsapi.com/api/deck/new/shuffle
+This returns a “deck_id” — an ID to a unique, shuffled deck of cards.
+https://deckofcardsapi.com/api/deck/[deck-id]/draw
+Which draws a card from the given deck ID, and returns info about the card drawn.
+Build an HTML page that gets a new deck on page load. It should have a button that, when clicked, draws a card from that deck and shows it. Every time you click the button, display another new card, until there are no cards left in the deck (when the deck is exhausted, hide the button).
+
+Here’s how this might look (with styling added; you don’t need to worry about rotating cards — you can just show them side-by-side as they’re drawn):
+
+_images/cards.gif
+Further Study»
+Figure out how to make a single request to the Pokemon API to get names and URLs for every pokemon in the database.
+
+Once you have names and URLs of all the pokemon, pick three at random and make requests to their URLs. Once those requests are complete, console.log the data for each pokemon.
+
+Start with your code from 2, but instead of logging the data on each random pokemon, store the batch data for all requested the pokemon in a variable and then make another request, this time to each pokemon’s species URL (you should see a key of species in the data). Once that request comes back, look in the flavor_text_entries key of the response data for a description of the species written in English. If you find one, console.log the name of the pokemon along with the description you found.
+
+Example: “ducklett: They are better at swimming than flying, and they happily eat their favorite food, peat moss, as they dive underwater.”
+
+BONUS Instead of relying on console.log, let’s create a UI for these random pokemon. Build an HTML page that lets you click on a button to generate data from three randomly chosen pokemon. Include the name of the pokemon, an image of the pokemon, and the description of its species which you found in 3.
+
+Here’s how this could look:
+
+_images/pokemon.gif
+Good luck!
+
+(https://rithm-students-assets.s3.us-west-1.amazonaws.com/udemy/exercises/async-nums-cards/handout/index.html)
